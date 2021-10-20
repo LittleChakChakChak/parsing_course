@@ -6,6 +6,7 @@ url = "https://api.github.com/users/" + user + "/repos"
 
 response = requests.get(url)
 reposts = response.json()
+
 list_reposts = []
 print(f'Репозитории пользователя {user}:')
 for rep in reposts:
