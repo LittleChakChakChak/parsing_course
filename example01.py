@@ -2,7 +2,7 @@ import requests
 import json
 
 # 1 Загрузка репозиториев из git --------------------------------------
-"""
+
 user = "LittleChakChakChak"
 url = "https://api.github.com/users/" + user + "/repos"
 i = 1
@@ -23,7 +23,7 @@ while i < 3:
     else:
         print(f'Не удачное соединение, код ошибки: {response.status_code}')
         i += 1
-"""
+
 # 2 Список песен из vk --------------------------------------
 
 user_id = "51331440"
