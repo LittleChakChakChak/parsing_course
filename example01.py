@@ -1,7 +1,7 @@
 import requests
 import json
 
-# 1 Загрузка репозиториев из git --------------------------------------
+# 1 Получение репозиториев из git --------------------------------------
 
 user = "LittleChakChakChak"
 url = "https://api.github.com/users/" + user + "/repos"
@@ -20,14 +20,16 @@ while i < 3:
     
         with open('files/file_1.json', 'w') as file_1:
             json.dump(list_reposts, file_1)
+
+        break
     else:
         print(f'Не удачное соединение, код ошибки: {response.status_code}')
         i += 1
 
-# 2 Список песен из vk --------------------------------------
+# 2 Получение список друзей из vk --------------------------------------
 
 user_id = "51331440"
-#method = "users.get"
+# method = "users.get"
 method = "friends.get"
 access_token = "my_little_secret"
 
@@ -40,9 +42,10 @@ rep = reposts['response']
 print('Список друзей')
 list_friend = []
 for user in rep['items']:
-    res = requests.get("https://api.vk.com/method/users.get?user_id=" + str(user) + "&access_token=" + access_token + "&v=5.81")
+    res = requests.get("https://api.vk.com/method/users.get?user_id="
+                       + str(user) + "&access_token=" + access_token + "&v=5.81")
     list_friend.append(res.json())
     print(res.json())
 
-with open('files/file_2.json', 'w') as file_2:
-    json.dump(list_friend, file_2)
+with open('files/file_1_2.json', 'w') as file_1_2:
+    json.dump(list_friend, file_1_2)
